@@ -9,14 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@speechmatics/auth": "^0.0.1",
+    "@speechmatics/browser-audio-input": "^2.0.2",
+    "@speechmatics/browser-audio-input-react": "^2.0.2",
+    "@speechmatics/flow-client-react": "^0.2.1",
+    "@speechmatics/use-flow-transcript": "^0.0.1-rc.0",
+    "@speechmatics/web-pcm-player-react": "^2.0.0",
+    "@tailwindcss/postcss": "^4.1.10",
+    "next": "15.3.4",
+    "postcss": "^8.5.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "typescript": "^5"
   }
 }
