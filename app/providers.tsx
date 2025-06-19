@@ -9,14 +9,7 @@ import { useAudioContexts } from "@/hooks/useAudioContexts";
 
 // This component will contain the context providers for the app
 export function Providers({ children }: { children?: React.ReactNode }) {
-  const { inputAudioContext, playbackAudioContext } = useAudioContexts({
-    recordingSampleRate:
-      typeof navigator !== "undefined" &&
-      navigator.userAgent.includes("Firefox")
-        ? undefined
-        : 16_000,
-    playbackSampleRate: 16_000,
-  });
+  const { inputAudioContext, playbackAudioContext } = useAudioContexts();
 
   return (
     <FlowProvider
