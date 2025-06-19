@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+section {
+  @apply border-2 rounded-md p-4 border-gray-300 shadow-xs;
+}
+
+button {
+  @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-md;
+}
+
+button[type="submit"] {
+  @apply bg-blue-500 text-white px-4 py-2 rounded-md;
+}
+
+select {
+  @apply bg-white  text-gray-800 px-4 py-2 rounded-md p-2.5 pr-4.5;
+}
