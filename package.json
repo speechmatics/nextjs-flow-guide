@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "biome check",
+    "format:fix": "biome check --write"
   },
   "dependencies": {
+    "@biomejs/biome": "^2.0.0",
     "@speechmatics/auth": "^0.0.1",
     "@speechmatics/browser-audio-input": "^2.0.2",
     "@speechmatics/browser-audio-input-react": "^2.0.2",
