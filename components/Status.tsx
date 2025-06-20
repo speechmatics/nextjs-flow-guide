@@ -20,12 +20,3 @@ export function Status() {
     </section>
   );
 }
-
-const StatusItem = ({ status, result }: { status: string; result: string }) => {
-  return (
-    <div className="flex">
-      <p className="w-1/2">{status}: </p>
-      <p className="w-1/2">{result}</p>
-    </div>
-  );
-};
