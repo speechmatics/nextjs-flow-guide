@@ -13,6 +13,7 @@ export function Providers({ children }: { children?: React.ReactNode }) {
 
   return (
     <FlowProvider
+      // `appId is optional, it can be any string uniquely identifying your app
       appId="nextjs-example"
       audioBufferingMs={500}
       websocketBinaryType="arraybuffer" // This is optional, but does lead to better audio performance, particularly on Firefox
