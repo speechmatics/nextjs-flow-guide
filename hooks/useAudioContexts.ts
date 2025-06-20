@@ -1,4 +1,4 @@
-import { useMemo, useSyncExternalStore, useEffect } from "react";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
 
 // Feel free to change the recording sample rate
 const recordingSampleRate = 16_000;
@@ -11,7 +11,7 @@ const playbackSampleRate = 16_000;
  * In practice they will be the same AudioContext, except in Firefox where sample rates may differ
  * See bug tracked here: https://bugzilla.mozilla.org/show_bug.cgi?id=1725336https://bugzilla.mozilla.org/show_bug.cgi?id=1725336
  * @todo: If/when the bug is fixed, we can use the same audio context for both recording and playback
-*/
+ */
 export function useAudioContexts() {
   const hydrated = useHydrated();
   const inputAudioContext = useMemo(
@@ -23,7 +23,9 @@ export function useAudioContexts() {
   );
 
   const playbackAudioContext = useMemo(() => {
-    const isFirefox = typeof navigator !== "undefined" && navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    const isFirefox =
+      typeof navigator !== "undefined" &&
+      navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
     return isFirefox
       ? new window.AudioContext({ sampleRate: playbackSampleRate })
       : inputAudioContext;
@@ -47,7 +49,7 @@ const useHydrated = () =>
 function useCleanupAudioContext(context?: AudioContext) {
   useEffect(() => {
     return () => {
-      if (context && context.state === 'running') {
+      if (context && context.state === "running") {
         context.close();
       }
     };
