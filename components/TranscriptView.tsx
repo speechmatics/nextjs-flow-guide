@@ -10,7 +10,6 @@ import { useEffect, useRef } from "react";
 export function TranscriptView() {
   const transcriptGroups = useFlowTranscript();
 
-  // Show error boundary on both socket errors and error messages from server
   useFlowEventListener("message", ({ data }) => {
     if (data.message === "Error") {
       throw new Error("Error message from server", { cause: data.error });
@@ -32,7 +31,7 @@ export function TranscriptView() {
   });
 
   return (
-    <section className="h-full min-h-0 flex flex-col gap-3">
+    <section className="h-full min-h-0">
       <h3>Transcript</h3>
       <div
         ref={scrollRef}
@@ -43,18 +42,18 @@ export function TranscriptView() {
       >
         {transcriptGroups.map((group) => (
           <div
-            className={`min-h-20 flex ${group.type === "agent" ? "justify-start" : "justify-end"}`}
+            className={`flex flex-row ${group.type === "agent" ? "justify-start" : "justify-end"}`}
             key={transcriptGroupKey(group)}
           >
             <div
-              className={`flex flex-col gap-1 p-2 w-3/4 rounded-md ${group.type === "agent" ? "bg-amber-50" : "bg-blue-50"}`}
+              className={`h-full flex flex-col gap-1 p-2 w-3/4 rounded-md ${group.type === "agent" ? "bg-amber-50" : "bg-blue-50"}`}
             >
               <h6>
                 {group.type === "agent"
                   ? "Agent"
                   : group.speaker.replace("S", "Speaker ")}
               </h6>
-              <p>
+              <p className="flex-1">
                 {group.type === "agent"
                   ? group.data.map((response) => response.text).join(" ")
                   : wordsToText(group.data)}
