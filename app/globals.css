@@ -9,7 +9,7 @@ main {
 }
 
 section {
-  @apply border-1 rounded-md p-6 border-gray-200 shadow-xs w-full h-full min-h-0 bg-white;
+  @apply flex flex-col gap-3 border-1 rounded-md p-6 border-gray-200 shadow-xs w-full h-full min-h-0 bg-white;
 }
 
 button {
